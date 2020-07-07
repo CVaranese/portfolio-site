@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Chris Varanese" />
+    <title>{% block title %}Chris Varanese{% endblock %}</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+</head>
+
+<body>
+	<header>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+		    <div class="container">
+                {% block nav %}
+		        <div class="collapse navbar-collapse" id="menu">
+		            <ul class="nav navbar-nav navbar-left">
+                        {% url 'index' %}
+		                <li>{% block nav-home %}<a href="{% url 'index' %}">Home</a>{% endblock %}</li>
+		                <li>{% block nav-projects %}<a href="{% url 'projects' %}">Projects</a>{% endblock %}</li>
+		                <li>{% block nav-vis %}<a href="{% url 'money_vis:index' %}">Senate Map</a>{% endblock %}</li>
+		            </ul>
+		        </div>
+                {% endblock %}
+		    </div>
+		    <!-- /.container -->
+		</nav>
+		<!-- Navigation -->
+	</header>
+	<!-- /////////////////////////////////////////Content -->
+	<div id="page-content">
+        {% block content %}{% endblock %}
+    </div>
+	<!-- /////////////////////////////////////////Footer -->
+	<footer>
+		<div class="wrap-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">Copyright &copy; me</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer -->
+<!-- jQuery -->
+<script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- Fontawesome -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

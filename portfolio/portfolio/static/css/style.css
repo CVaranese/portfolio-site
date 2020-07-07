@@ -1,0 +1,124 @@
+/*!
+Free Bootstrap Themes : https://www.zerotheme.com
+ */
+ 
+/* ---------------------------------------------------------------------------- */
+/* ------------------------------------Html-Body------------------------------- */
+/* ---------------------------------------------------------------------------- */
+html, body {width:100%; padding:0; margin:0;}
+body {background: #ffffff; color: #333333;font-size: 16px; font-family: Arial, Helvetica, sans-serif}
+
+/* ---------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------- */
+html { -webkit-text-size-adjust: none;}
+.video embed,.video object,.video iframe { width: 100%;  height: auto;}
+img{max-width:100%;	height: auto;width: auto\9; /* ie8 */}
+
+a{color: #337AC6;text-decoration: none;}
+a:hover {opacity: 0.9; text-decoration: none;}
+
+h1 {font-size: 55px;}
+h2 {font-size: 45px;}
+h3 {font-size: 30px;}
+h4 {font-size: 25px;}
+h5 {font-size: 20px;}
+
+p{margin-bottom: 20px;}
+
+.clear{content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix:after, .clearfix:before{clear: both; content: '\0020'; display: block; visibility: hidden; width: 0; height: 0;}
+
+hr{border: 1px solid #eee;margin: 0 0 25px 0;}
+
+/* ---------------------------------------------------------------------------- */
+/* -------------------------------------Content-------------------------------- */
+/* ---------------------------------------------------------------------------- */
+#page-content {margin: 100px 0 50px 0;}
+#page-content .heading {border-bottom: 1px solid #eee;margin-bottom: 30px;}
+#page-content .heading h2 {display: inline-block;}
+#page-content .content {}
+#page-content .box-item {}
+#page-content .box-item img {margin-bottom: 30px ;}
+#page-content .box-item h3 {margin: 0 0 10px 0;font-size: 26px;}
+#page-content .box-item  span {font-weight: bold;font-size: 18px;margin-bottom: 80px;}
+
+#page-content .pagination {border-bottom: 1px solid #eee;border-top: 1px solid #eee;padding: 40px 0;display:block;text-align: center;}
+#page-content .pagination ul li {display: inline-block;margin-bottom: 20px;}
+#page-content .pagination ul li a {border: 1px solid #999;padding: 10px 15px;background-color: #fff; color: #337AB7;font-size: 14px;border-radius: 3px;-webkit-border-radius: 3px;-moz-border-radius: 3px;-khtml-border-radius: 3px;}
+#page-content .pagination ul li a:hover {background-color: #CCC;}
+#page-content .pagination  li.active a{background: #337AB7;color: #fff;}
+/* ---------------------------------------------------------------------------- */
+/* -------------------------------------Footer--------------------------------- */
+/* ---------------------------------------------------------------------------- */
+footer {}
+footer .wrap-footer {padding-bottom: 50px;}
+
+
+/* ----------------------- Custom --------------------------- */
+.intro {
+    background-color: #DDDDDD;
+    border-radius:5px;
+    width: 100%;
+    padding:10px;
+}
+
+.circle-img {
+    border-radius:50%;
+    border:3px solid #fff;
+    height:150px;
+    width:150px;
+    float: left;
+}
+
+.intro-text {
+    padding-left:30px;
+    float: left;
+    text-align: center;
+    height: 150px;
+    display: table;
+}
+
+.span-text {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.fa {
+    display:inline-block;
+    font:normal normal normal 14px/1 FontAwesome;
+    font-size:inherit;
+    text-rendering:auto;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale
+}
+
+.social-btn {
+    padding:10px;
+    margin:10px
+}
+.social-btn,
+.btn {
+    display:inline-block;
+    border:1px solid;
+    border-color:rgba(229,230,233,0.5) rgba(223,224,228,0.5) #d0d1d5;
+    border-radius:3px;
+    text-decoration:none;
+    background:#fff;
+    color:#282828
+}
+    .social-btn:hover,
+    .btn:hover {
+    box-shadow:0 0 1px 0 rgba(40,40,40,0.5);
+    color:#FF4136
+}
+    .social-btn {
+    padding:10px;
+    margin:10px
+}
+
+.fa-fw {
+    width:1.2857142857em;
+    text-align:center
+}

@@ -25,7 +25,7 @@ SECRET_KEY = 'e%9_7@lz@b-!q401(8+!k$w$x74aw#ewhzs(oe9&trz0+b+sp2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cvaranese.pythonanywhere.com', 'localhost']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'money_vis',
+    'portfolio',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,84 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="intro row">
+        <img class="circle-img" src="{% static 'images/me.jpg'%}">
+        <div class="intro-text">
+            <span class="span-text">
+                <p><h2>Chris Varanese</h2></p>
+                <p><h4>Software Engineer</h4></p>
+            </span>
+        </div>
+        <div class="intro-text" style="font-size:30px;">
+            <span class="span-text">
+                <a class="social-btn" href="mailto:cdvaranese@gmail.com" target="_blank"
+                rel="noopener noreferrer"><i class="fa fa-fw fa-envelope"></i></a> 
+            </span>
+        </div>
+        <div class="intro-text" style="font-size:30px;">
+            <span class="span-text">
+                <a class="social-btn" href="http://linkedin.com/in/CVaranese" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i></a>
+            </span>
+        </div>
+        <div class="intro-text" style="font-size:30px;">
+            <span class="span-text">
+                <a class="social-btn" href="http://github.com/CVaranese" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i></a>
+            </span>
+        </div>
+    </div>
+    <div class="heading">
+        <h2>Projects</h2>
+    </div>
+    <div class="content">
+        <div class="row box-item">
+            <div class="col-md-6">
+                <img src="{% static 'images/1.jpg' %}" alt="">
+            </div>
+            <div class="col-md-6">
+                <h3>Text Heading</h3>
+                <span>Subheading</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                <a href="#" class="btn btn-primary">View Project</a>
+            </div>
+        </div>
+        <hr>
+        <div class="row box-item">
+            <div class="col-md-6">
+                <img src="{% static 'images/1.jpg' %}" alt="">
+            </div>
+            <div class="col-md-6">
+                <h3>Text Heading</h3>
+                <span>Subheading</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                <a href="#" class="btn btn-primary">View Project</a>
+            </div>
+        </div>
+        <hr>
+        <div class="row box-item">
+            <div class="col-md-6">
+                <img src="{% static 'images/1.jpg' %}" alt="">
+            </div>
+            <div class="col-md-6">
+                <h3>Text Heading</h3>
+                <span>Subheading</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                <a href="#" class="btn btn-primary">View Project</a>
+            </div>
+        </div>
+        <div class="pagination">
+            <ul>
+                <li><a href="#"> << </a></li>
+                <li class="active"><a href="#"> 1 </a></li>
+                <li><a href="#"> 2 </a></li>
+                <li><a href="#"> 3 </a></li>
+                <li><a href="#"> 4 </a></li>
+                <li><a href="#"> 5 </a></li>
+                <li><a href="#"> >> </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
