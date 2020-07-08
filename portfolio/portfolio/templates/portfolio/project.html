@@ -1,0 +1,44 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block title %}{{name}}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="intro row">
+        <img class="circle-img" src="{% static 'images/me.jpg'%}">
+        <div class="intro-text">
+            <span class="span-text">
+                <p><h2>Chris Varanese</h2></p>
+                <p><h4>Software Engineer</h4></p>
+            </span>
+        </div>
+        <div class="intro-link"> 
+            <span class="span-text">
+                <a class="social-btn" href="mailto:cdvaranese@gmail.com" target="_blank"
+                rel="noopener noreferrer"><i class="fa fa-fw fa-envelope"></i></a> 
+            </span>
+        </div>
+        <div class="intro-link"> 
+            <span class="span-text">
+                <a class="social-btn" href="http://linkedin.com/in/CVaranese" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i></a>
+            </span>
+        </div>
+        <div class="intro-link"> 
+            <span class="span-text">
+                <a class="social-btn" href="http://github.com/CVaranese" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i></a>
+            </span>
+        </div>
+        <div class="intro-link"> 
+            <span class="span-text">
+                <a class="social-btn" href={% url 'resume' %} target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-file-text"></i></a>
+            </span>
+        </div>
+    </div>
+    <div class="heading">
+        <h2>{{name}}</h2>
+    </div>
+    <div class="content">
+        {{content}}
+    </div>
+</div>
+{% endblock %}
