@@ -79,6 +79,15 @@ footer .wrap-footer {padding-bottom: 50px;}
     display: table;
 }
 
+.intro-link {
+    padding-right:30px;
+    float: right;
+    text-align: center;
+    height: 150px;
+    display: table;
+    font-size: 30px;
+}
+
 .span-text {
     display: table-cell;
     vertical-align: middle;
@@ -121,4 +130,7 @@ footer .wrap-footer {padding-bottom: 50px;}
 .fa-fw {
     width:1.2857142857em;
     text-align:center
+}
+html {
+  overflow-y: scroll;
 }
