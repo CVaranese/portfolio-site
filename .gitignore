@@ -1,2 +1,3 @@
 portfolio/portfolio/settings.py
 *.pyc
+static/*
