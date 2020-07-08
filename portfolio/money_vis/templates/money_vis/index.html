@@ -1,24 +1,26 @@
+{% extends 'portfolio/base.html' %}
 {% load static %}
 
-<head>
-    <style>
-        #chartdiv {
-            width: 100%;
-            height: 500px;
-        }
-    </style>
+{% block title %} Senate Elections {% endblock %}
+{% block extra_head %}
+<style>
+    #chartdiv {
+        width: 100%;
+        height: 500px;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/maps.js"></script>
+<script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+<script src="https://www.amcharts.com/lib/4/geodata/usaLow.js"></script>
+<script src="https://www.amcharts.com/lib/4/geodata/data/countries2.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+{% endblock %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.amcharts.com/lib/4/core.js"></script>
-    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
-    <script src="https://www.amcharts.com/lib/4/maps.js"></script>
-    <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
-    <script src="https://www.amcharts.com/lib/4/geodata/usaLow.js"></script>
-    <script src="https://www.amcharts.com/lib/4/geodata/data/countries2.js"></script>
-    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-</head>
-
-<body>
+{% block content %}
+<div class="container">
     <div>
     Year: <select id="filter"></select>
     <script>
@@ -29,4 +31,5 @@
     </div>
     <div id="chartdiv"></div>
     <script src="{% static 'money_vis/js/charts.js' %}"></script>
-</body>
+</div>
+{% endblock %}

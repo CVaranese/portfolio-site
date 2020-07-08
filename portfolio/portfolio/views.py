@@ -1,5 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.staticfiles import finders
+import os
+import yaml
+from pathlib import Path
+import mistune
 
 # Create your views here.
 def index(request):
@@ -21,16 +28,36 @@ def index(request):
          'description': 'OpenGL implementation of Volumetric Lighting',
          'link': 'https://google.com'},
     ]}
+    project_files_dir = finders.find('portfolio/projects/')
+    project_files = os.listdir(project_files_dir)
+    print(project_files)
+    ctxt = {'projects': []}
+    '''
+    for project in project_files:
+        with open(Path(project_files_dir).joinpath(project)) as pfile:
+            file_details = yaml.load(pfile, Loader=yaml.FullLoader)
+            file_details['link'] = project.split('.')[0]
+            print(file_details)
+            ctxt['projects'].append(file_details)
+    '''
+
     return render(request, 'portfolio/index.html', ctxt)
 
 def project_page(request, project_name):
-    try:
-        md_context =
+    project_file = finders.find(f'portfolio/projects/{project_name}.md')
+    print(project_file)
+    with open(project_file) as pfile:
+        file_content = pfile.read()
+        #project_details = yaml.load(pfile, Loader=yaml.FullLoader)
+
     ctxt = {
-        'name': "project_name",
-        'context': "Hi!",
+        'name': project_name,
+        'content': mistune.html(file_content),
     }
-    return render(request, 'portfolio/index.html', ctxt)
+
+    #ctxt = project_details
+    print(ctxt)
+    return render(request, 'portfolio/project.html', ctxt)
 
 def resume(request):
     return render(request, 'portfolio/resume.html')
