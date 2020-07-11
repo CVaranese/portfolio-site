@@ -1,8 +1,8 @@
-title:  "Super Smash Bros. Melee AI"
+name:  "Super Smash Bros. Melee AI"
 description: "Creation of a Machine Learning Melee AI using Keras"
 image: images/melee_thumb.jpg
 feature: images/1200px-Finaldestination.jpg
-content: "
+---
 
 ## Project Description
 

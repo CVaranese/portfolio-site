@@ -1,3 +1,8 @@
+name: "Volumetric Lighting"
+description: "OpenGL implementation of Volumetric Lighting"
+image: images/vlight_thumb.png
+---
+
 ## Project Description
 
 This project sought first to create shadows using a shadowmap. After that, volumetric lighting, i.e. \"God Rays,\" were created using a similar technology. This lighting technique results in visible light rays, as if the air were cloudy or foggy. As volumetric lighting was the key feature of this project, the shadows and overall scene are not ideal, meaning the shadows are unoptomized, shown by the low resolution edges and a low amount of shadow acne.
@@ -21,20 +26,15 @@ The general process was taken from a [Nvidia paper on the subject](http://develo
 
 ## Results
 This project ended incredibly well!
-{% capture images %}
-	https://thumbs.gfycat.com/ForsakenGlisteningHogget-max-1mb.gif
-{% endcapture %}
-{% include gallery images=images cols=1 %}
+
+![](https://thumbs.gfycat.com/ForsakenGlisteningHogget-max-1mb.gif)
 
 This is a dragon rotating in the scene so that we can really look at how it ended up. Here is some more of the scene:
 
-{% capture images %}
-    https://i.imgur.com/U12Vx7L.png
-	https://i.imgur.com/xo22tR5.png
-	https://i.imgur.com/sJgKm8u.png
-	https://i.imgur.com/TejZdEp.png
-{% endcapture %}
-{% include gallery images=images caption=\"Images of the scene\" cols=2 %}
+![](https://i.imgur.com/U12Vx7L.png)
+![](https://i.imgur.com/xo22tR5.png)
+![](https://i.imgur.com/sJgKm8u.png)
+![](https://i.imgur.com/TejZdEp.png)
 
 The only problem is that, when the sampling isn't set that high, there are these weird circles, similar to shadow acne. I am not quite sure how to fix this.
 

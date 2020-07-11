@@ -1,6 +1,5 @@
 {% extends 'portfolio/base.html' %}
 {% load static %}
-{% load markdown_extras %}
 {% block title %}{{name}}{% endblock %}
 
 {% block content %}
@@ -36,7 +35,7 @@
         </div>
     </div>
     <div class="post-title feature" {% if feature %}style="background-image: url({% static feature %})"{% endif %}>
-        <h1>{{title}}</h1> 
+        <h1>{{name}}</h1> 
     </div>
     <div class="content">
         {{content | safe}}

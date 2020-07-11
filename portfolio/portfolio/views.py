@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles import finders
+from django.template import Template, Context
 import os
 import yaml
 from pathlib import Path
@@ -30,33 +31,40 @@ def index(request):
     ]}
     project_files_dir = finders.find('portfolio/projects/')
     project_files = os.listdir(project_files_dir)
-    print(project_files)
     ctxt = {'projects': []}
-    '''
     for project in project_files:
-        with open(Path(project_files_dir).joinpath(project)) as pfile:
-            file_details = yaml.load(pfile, Loader=yaml.FullLoader)
-            file_details['link'] = project.split('.')[0]
-            print(file_details)
-            ctxt['projects'].append(file_details)
-    '''
+        project_path = Path(project_files_dir).joinpath(project)
+        details, content = process_project_page(project_path)
+        details['link'] = project.split('.')[0]
+        ctxt['projects'].append(details)
 
     return render(request, 'portfolio/index.html', ctxt)
 
+def process_project_page(project_page_path):
+    with open(project_page_path) as pfile:
+        project_details = ''
+        for line in pfile:
+            if line == '---\n':
+                break
+            project_details += line
+        project_details = yaml.load(project_details, Loader=yaml.FullLoader)
+        project_content = pfile.read()
+    return project_details, project_content
+
 def project_page(request, project_name):
     project_file = finders.find(f'portfolio/projects/{project_name}.md')
-    print(project_file)
-    with open(project_file) as pfile:
-        file_content = pfile.read()
+    details, content = process_project_page(project_file)
+    content = Template(content).render(Context({}))
+    content = mistune.html(content)
         #project_details = yaml.load(pfile, Loader=yaml.FullLoader)
 
     ctxt = {
         'name': project_name,
-        'content': mistune.html(file_content),
+        'content': content,
     }
+    ctxt.update(details)
 
     #ctxt = project_details
-    print(ctxt)
     return render(request, 'portfolio/project.html', ctxt)
 
 def resume(request):
