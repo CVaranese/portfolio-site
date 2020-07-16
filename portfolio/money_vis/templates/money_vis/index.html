@@ -21,15 +21,14 @@
 
 {% block content %}
 <div class="container">
-    <div>
-    Year: <select id="filter"></select>
-    <script>
-        for(var i = 1980; i <= 2018; i+= 2){
-            $("#filter").append("<option>" + i + "</option>");
-        }
-    </script>
-    </div>
     <div id="chartdiv"></div>
     <script src="{% static 'money_vis/js/charts.js' %}"></script>
+    <div style="width: 60%; margin: auto;">
+        <center>
+        <output id="outputId" style="font-size: 20px">1980</output>
+        <input type="range" id="filter" min="1980" max="2018" step="2"
+            oninput="outputId.value = filter.value" value=1980>
+        </center>
+    </div>
 </div>
 {% endblock %}

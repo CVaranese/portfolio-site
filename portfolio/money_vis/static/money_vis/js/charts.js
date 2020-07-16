@@ -18,15 +18,36 @@ polygonSeries.heatRules.push({
     max: am4core.color('#000000'),
 });
 
-polygonTemplate.tooltipText = "{name}: {value}";
+polygonTemplate.adapter.add("tooltipHTML", function(text, mPolygon) {
+    poly_data = mPolygon.dataItem.dataContext;
+    output_text = ''
+    if (poly_data['winner']){ // Senate results exist
+        output_text = `<center><strong>{name}</strong></center>
+        <hr />
+        <table>
+        <tr>
+            <th align="left" style="padding: 5px">{winner}</th>
+            <td style="padding: 5px">{topvotepercent.formatNumber('###.##')}</td>
+        </tr>
+        <tr>
+            <th align="left" style="padding: 5px">{loser}</th>
+            <td style="padding: 5px">{secondvotepercent.formatNumber('###.##')}</td>
+        </tr>
+        </table>`;
+    } else {
+        output_text = `<center><strong>{name}</strong></center>
+        <hr />
+        No Election`;
+    }
+    return output_text;
+});
+
 polygonTemplate.nonScalingStroke = true;
 polygonTemplate.strokeOpacity = 0.5;
 polygonTemplate.fill = am4core.color("#eee");
 polygonTemplate.propertyFields.fill = "color";
 
 polygonSeries.dataSource.url = '/static/money_vis/state_json_data.json';
-
-console.log(polygonTemplate);
 
 // function to get data per year
 function generate_parsing_adapter(year) {
@@ -39,13 +60,16 @@ function generate_parsing_adapter(year) {
             curr_id = 'US-' + row['state']
             new_data.push({id: curr_id,
                            value: row['votepercentdifference'],
-                           winner: row['winner']});
+                           winner: row['winner'],
+                           loser: row['loser'],
+                           topvotepercent: row['topvotepercent'],
+                           secondvotepercent: row['secondvotepercent']});
         }
         return new_data;
     };
 };
 
-polygonSeries.dataSource.adapter.add('parsedData', generate_parsing_adapter('1984'));
+polygonSeries.dataSource.adapter.add('parsedData', generate_parsing_adapter('1980'));
 
 polygonSeries.dataSource.events.on("error", function(ev) {
     console.log('Parsing Error');
@@ -71,12 +95,12 @@ polygonTemplate.adapter.add("fill", function(fill, mapPolygon) {
         fill = am4core.color({'r':fill.rgb['r'], 'b':255, 'g':fill.rgb['g']});
     } else {
         fill = am4core.color({'r':fill.rgb['r'], 'b':fill.rgb['b'], 'g':255});
-        console.log(winner);
     }
     return fill;
 })
 
-document.getElementById('filter').addEventListener('change', function(e) {
+//document.getElementById('filter').addEventListener('change', function(e) {
+document.getElementById('filter').addEventListener('input', function(e) {
     polygonSeries.dataSource.adapter.remove('parsedData');
     polygonSeries.dataSource.adapter.add('parsedData', generate_parsing_adapter(e.target.value));
     polygonSeries.dataSource.load();
